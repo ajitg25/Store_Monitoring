@@ -1,5 +1,21 @@
 # Store_Monitoring
 
+## Installation
+
+To install this project, follow these steps:
+
+1. `pip install -r requirements.txt`
+2. Declare database namy as "Restro"
+   Colections as:
+    store_status.csv as "ActiveHr"
+    Menu_hours.csv as "BusinessHr"
+    timezone.csv as "timezone"  in mongoDB Compass
+3. Run the api file using,
+    `uvicorn api:app --reload`
+    
+
+##Description
+
 It defines a FastAPI application instance app, connects to a MongoDB database named Restro and initializes collections active_data, business_hour, and timezone. It then gets the current time and date, and declares variables for one week before and the previous day.
 
 It has three functions cal_act_in, get_business_hour() and get_active_details() which take business_hour, active_data and storeID as arguments, and retrieve business hours and active details of a store from MongoDB.
@@ -16,4 +32,5 @@ There are two endpoint:
 
 
 
-Video Link: https://drive.google.com/file/d/1GNcw4SDzzU_NDzv7AAE6YmYvF4yXfdSr/view?usp=share_link
+##Video Link:
+https://drive.google.com/file/d/1GNcw4SDzzU_NDzv7AAE6YmYvF4yXfdSr/view?usp=share_link
