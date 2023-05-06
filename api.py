@@ -143,8 +143,12 @@ def cal_act_in(clean_active):
         T_prev = datetime.strptime(T_prev, UTC_format)
         T_time = datetime.strptime(T, UTC_format)
 
+        #total difference of time in seconds
         delSec = (T_time-T_prev).total_seconds()
+
+        #used ternary to handle the case when the prev_time is suppose 15:00:00 and current time is 03:00:00
         deltatSeconds = (delSec if delSec>0 else delSec+24*60*60)
+
         # if the key exist so that mean the business hour is defined 
         if x[0] in clean_Business.keys():
             bstart = clean_Business[x[0]]['start']
@@ -152,6 +156,7 @@ def cal_act_in(clean_active):
             bstart = datetime.strptime(bstart, '%H:%M:%S').time()
             bend = datetime.strptime(bend, '%H:%M:%S').time()
 
+            #converting the time to datetime object with current date
             bstart = datetime.combine(T_time.date(), bstart)
             bend = datetime.combine(T_time.date(), bend)
        
@@ -166,7 +171,8 @@ def cal_act_in(clean_active):
             else:
                 # print("active IN")
                 # print("inactive time: ",T_time-T_prev)
-                inactive = inactive + deltatSeconds       
+                inactive = inactive + deltatSeconds 
+
         # store is opened for 24*7
         else:
             if(x[1]=='inactive'):
@@ -199,15 +205,15 @@ class storeIDD(BaseModel):
 @app.post("/trigger_report")
 async def trigger(item: storeIDD):
     get_business_hour(business_hour,item.ID)
-    print(clean_Business)
-    print()
+    # print(clean_Business)
+    # print()
 
     clean_active,clean_active_day,clean_active_hr = get_active_details(active_data,item.ID)
-    print("clean active: " ,clean_active)
-    print()
-    print("clean active_day: " ,clean_active_day)
-    print()
-    print("clean active_hr: " ,clean_active_hr)
+    # print("clean active: " ,clean_active)
+    # print()
+    # print("clean active_day: " ,clean_active_day)
+    # print()
+    # print("clean active_hr: " ,clean_active_hr)
 
     uptime_last_week, downtime_last_week = cal_act_in(clean_active)
     uptime_last_day, downtime_last_day = cal_act_in(clean_active_day)
