@@ -1,20 +1,5 @@
 # Store_Monitoring
 
-## Installation
-
-To install this project, follow these steps:
-
-1. `pip install -r requirements.txt`.
-3. Unzip the CSV file.
-2. Declare database name as "Restro"
-   Colections as:
-    - store_status.csv as "ActiveHr"
-    - Menu_hours.csv as "BusinessHr"
-    - timezone.csv as "timezone"  in mongoDB Compass
-3. Run the api file using,
-    `uvicorn api:app --reload`
-    
-
 ## Description
 
 It defines a FastAPI application instance app, connects to a MongoDB database named Restro and initializes collections active_data, business_hour, and timezone. It then gets the current time and date, and declares variables for one week before and the previous day.
@@ -31,7 +16,19 @@ There are two endpoint:
 1. /trigger_report, this with the help of all three mentioned functions gets the report and insert it into database in the report collection. It returns the name of the report with which its stored in mongodb and this report name can be used to fetch the report from database.
 2. /get_report, this endpoint gets the report from the database and displays in the front end after converting it into csv format.
 
+## Installation
 
+To install this project, follow these steps:
+
+1. `pip install -r requirements.txt`.
+3. Unzip the CSV file.
+2. Declare database name as "Restro"
+   Colections as:
+    - store_status.csv as "ActiveHr"
+    - Menu_hours.csv as "BusinessHr"
+    - timezone.csv as "timezone"  in mongoDB Compass
+3. Run the api file using,
+    `uvicorn api:app --reload`
 
 ## Video Link:
 https://drive.google.com/file/d/1GNcw4SDzzU_NDzv7AAE6YmYvF4yXfdSr/view?usp=share_link
