@@ -14,7 +14,7 @@ To install this project, follow these steps:
     `uvicorn api:app --reload`
     
 
-##Description
+## Description
 
 It defines a FastAPI application instance app, connects to a MongoDB database named Restro and initializes collections active_data, business_hour, and timezone. It then gets the current time and date, and declares variables for one week before and the previous day.
 
@@ -32,5 +32,5 @@ There are two endpoint:
 
 
 
-##Video Link:
+## Video Link:
 https://drive.google.com/file/d/1GNcw4SDzzU_NDzv7AAE6YmYvF4yXfdSr/view?usp=share_link
