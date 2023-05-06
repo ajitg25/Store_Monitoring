@@ -4,12 +4,13 @@
 
 To install this project, follow these steps:
 
-1. `pip install -r requirements.txt`
-2. Declare database namy as "Restro"
+1. `pip install -r requirements.txt`.
+3. Unzip the CSV file.
+2. Declare database name as "Restro"
    Colections as:
-    store_status.csv as "ActiveHr"
-    Menu_hours.csv as "BusinessHr"
-    timezone.csv as "timezone"  in mongoDB Compass
+    - store_status.csv as "ActiveHr"
+    - Menu_hours.csv as "BusinessHr"
+    - timezone.csv as "timezone"  in mongoDB Compass
 3. Run the api file using,
     `uvicorn api:app --reload`
     
